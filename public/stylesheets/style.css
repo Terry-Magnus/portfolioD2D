@@ -1,0 +1,85 @@
+/************************************************* base styles ***************************************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #f5fdff;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #040404;
+}
+
+/***************************************** end of base styles ******************************************/
+/***************************************** nav styles ******************************************/
+.nav-container {
+  padding: 2em 3em 0;
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+}
+.nav-container .logo-image-wrap {
+  width: max-content;
+}
+.nav-container .logo-image-wrap > img {
+  width: 100%;
+}
+.nav-container .menu-bar {
+  float: right;
+  padding-top: 1em;
+}
+.nav-container .menu-bar .nav {
+  width: 100%;
+}
+.nav-container .menu-bar .nav #nav-items-wrap {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.nav-container .menu-bar .nav #nav-items-wrap .nav-links {
+  color: #f5fdff;
+}
+
+/***************************************** end of nav styles ******************************************/
+/***************************************** landing-message styles ******************************************/
+.landing-message-container {
+  width: 100%;
+  position: relative;
+}
+.landing-message-container .landing-image-wrap {
+  margin: 2rem auto;
+  width: 50%;
+}
+.landing-message-container .landing-image-wrap > img {
+  width: 100%;
+}
+.landing-message-container .landing-message-wrap {
+  position: absolute;
+  top: 15%;
+  left: 57%;
+  width: max-content;
+}
+.landing-message-container .landing-message-wrap > h1 {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 6rem;
+  line-height: 6rem;
+  margin-bottom: 0;
+}
+.landing-message-container .landing-message-wrap > h1 #dot {
+  color: #b91b67;
+}
+.landing-message-container .landing-message-wrap > p {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1rem;
+  opacity: 0.47;
+}
+
+/*# sourceMappingURL=style.css.map */
