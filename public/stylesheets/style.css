@@ -1,3 +1,22 @@
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+@keyframes textBlink {
+  from {
+    width: 0.15rem;
+  }
+  to {
+    background: transparent;
+  }
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 0.47;
+    transform: translateY(0);
+  }
+}
 /************************************************* base styles ***************************************/
 * {
   margin: 0;
@@ -20,27 +39,105 @@ body {
   gap: 1em;
   justify-content: space-between;
 }
-.nav-container .logo-image-wrap {
+.nav-container .nav-branding {
   width: max-content;
 }
-.nav-container .logo-image-wrap > img {
+.nav-container .nav-branding > img {
   width: 100%;
 }
-.nav-container .menu-bar {
-  float: right;
-  padding-top: 1em;
+.nav-container .nav {
+  width: max-content;
 }
-.nav-container .menu-bar .nav {
-  width: 100%;
+@media only screen and (max-width: 768px) {
+  .nav-container .nav {
+    display: none;
+  }
 }
-.nav-container .menu-bar .nav #nav-items-wrap {
+.nav-container .nav #nav-items-wrap {
   list-style: none;
   display: flex;
   flex-direction: row;
   gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }
-.nav-container .menu-bar .nav #nav-items-wrap .nav-links {
+.nav-container .nav #nav-items-wrap .nav-link {
   color: #f5fdff;
+}
+.nav-container .nav #nav-items-wrap .nav-link:hover {
+  color: #b9961b;
+}
+.nav-container .hamburger {
+  display: block;
+  width: 35px;
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: none;
+}
+@media only screen and (min-width: 768px) {
+  .nav-container .hamburger {
+    display: none;
+  }
+}
+.nav-container .hamburger .bar, .nav-container .hamburger::after, .nav-container .hamburger::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 5px;
+  background: #f5fdff;
+  margin: 6px 0;
+  transition: all 0.3s ease;
+}
+.nav-container .hamburger.active .bar {
+  opacity: 0;
+}
+.nav-container .hamburger.active::before {
+  transform: rotate(45deg) translateY(15px);
+}
+.nav-container .hamburger.active::after {
+  transform: rotate(-45deg) translateY(-15px);
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 60%;
+  min-height: 100vh;
+  display: block;
+  z-index: 1;
+  background-color: #040404;
+  padding-top: 120px;
+  transition: 0.4s;
+}
+@media only screen and (min-width: 768px) {
+  .mobile-nav {
+    display: none;
+  }
+}
+.mobile-nav a {
+  display: block;
+  text-align: center;
+  max-width: 50%;
+  margin: 0 auto 2rem;
+  padding: 1rem;
+  background-color: #111111;
+  color: #f5fdff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 0.8rem;
+  line-height: 1rem;
+}
+.mobile-nav a:hover {
+  background-color: #b9961b;
+}
+
+.mobile-nav.active {
+  left: 0;
 }
 
 /***************************************** end of nav styles ******************************************/
@@ -53,25 +150,113 @@ body {
   margin: 2rem auto;
   width: 50%;
 }
+@media only screen and (max-width: 768px) {
+  .landing-message-container .landing-image-wrap {
+    width: 100%;
+    max-height: 80vh;
+    overflow: hidden;
+  }
+}
 .landing-message-container .landing-image-wrap > img {
   width: 100%;
+  height: max-content;
+}
+@media only screen and (max-width: 768px) {
+  .landing-message-container .landing-image-wrap > img {
+    width: 200%;
+  }
 }
 .landing-message-container .landing-message-wrap {
   position: absolute;
-  top: 15%;
+  top: 20%;
   left: 57%;
   width: max-content;
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (max-width: 768px) {
+  .landing-message-container .landing-message-wrap {
+    left: 50%;
+    top: 25%;
+    transform: translateX(-50%);
+  }
 }
 .landing-message-container .landing-message-wrap > h1 {
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 6rem;
-  line-height: 6rem;
+  font-size: 7rem;
+  line-height: 7rem;
   margin-bottom: 0;
 }
-.landing-message-container .landing-message-wrap > h1 #dot {
+@media only screen and (max-width: 768px) {
+  .landing-message-container .landing-message-wrap > h1 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 5rem;
+    line-height: 5rem;
+  }
+}
+.landing-message-container .landing-message-wrap #hello {
+  position: relative;
+  max-width: max-content;
+}
+.landing-message-container .landing-message-wrap #hello::before, .landing-message-container .landing-message-wrap #hello::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.landing-message-container .landing-message-wrap #hello::before {
+  background: #040404;
+  animation: typewriter 1s steps(6) 2s forwards;
+}
+.landing-message-container .landing-message-wrap #hello::after {
+  animation: typewriter 1s steps(6) 2s forwards;
+}
+.landing-message-container .landing-message-wrap #hello #dot {
   color: #b91b67;
+}
+.landing-message-container .landing-message-wrap #i-am {
+  position: relative;
+  max-width: max-content;
+}
+.landing-message-container .landing-message-wrap #i-am::before, .landing-message-container .landing-message-wrap #i-am::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.landing-message-container .landing-message-wrap #i-am::before {
+  background: #040404;
+  animation: typewriter 1s steps(3) 3s forwards;
+}
+.landing-message-container .landing-message-wrap #i-am::after {
+  animation: typewriter 1s steps(3) 3s forwards;
+}
+.landing-message-container .landing-message-wrap #derah {
+  position: relative;
+  max-width: max-content;
+}
+.landing-message-container .landing-message-wrap #derah::before, .landing-message-container .landing-message-wrap #derah::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.landing-message-container .landing-message-wrap #derah::before {
+  background: #040404;
+  animation: typewriter 1s steps(5) 4s forwards;
+}
+.landing-message-container .landing-message-wrap #derah::after {
+  animation: typewriter 1s steps(5) 4s forwards;
 }
 .landing-message-container .landing-message-wrap > p {
   font-family: "Poppins", sans-serif;
@@ -79,7 +264,54 @@ body {
   font-weight: 300;
   font-size: 1rem;
   line-height: 1rem;
-  opacity: 0.47;
+  opacity: 0;
+  transform: translateY(3rem);
+  animation: fadeInUp 2s ease 5s forwards;
+}
+@media only screen and (max-width: 768px) {
+  .landing-message-container .landing-message-wrap > p {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1rem;
+    margin-top: 0.8rem;
+  }
+}
+
+.btn-container {
+  display: none;
+}
+@media only screen and (max-width: 768px) {
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0 5rem;
+    width: 100%;
+  }
+  .btn-container .btn {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1rem;
+    padding: 1rem 2rem;
+    border: 1px solid #b9961b;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #b99b2e;
+    color: #f5fdff;
+    width: 80%;
+    transition: margin-top 1s, width 1s, background-color 1s;
+  }
+  .btn-container .btn:hover {
+    background-color: #b9961b;
+    color: #f5fdff;
+    border: 1px solid #b9961b;
+    margin-top: 0.5rem;
+    width: 85%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

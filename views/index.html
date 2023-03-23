@@ -26,50 +26,62 @@
       src="https://kit.fontawesome.com/7596021f26.js"
       crossorigin="anonymous"
     ></script>
+
+    <script src="../public/js/nav.js" defer></script>
   </head>
   <body>
     <header>
       <div class="nav-container">
-        <div class="logo-image-wrap">
+        <div class="nav-branding">
           <img src="../public/images/logo.png" alt="" />
         </div>
 
-        <div class="menu-bar">
-          <div class="nav">
-            <ul id="nav-items-wrap">
-              <li class="nav-items">
-                <a href="" class="nav-links">Home</a>
-              </li>
-              <li class="nav-items">
-                <a href="../views/catalogue.html" class="nav-links"
-                  >Catalogue</a
-                >
-              </li>
-              <li class="nav-items">
-                <a href="" class="nav-links">Connect</a>
-              </li>
-            </ul>
-          </div>
-          <!-- end of nav div -->
+        <div class="nav">
+          <ul id="nav-items-wrap">
+            <li class="nav-items">
+              <a href="" class="nav-link">Home</a>
+            </li>
+            <li class="nav-items">
+              <a href="../views/catalogue.html" class="nav-link">Catalogue</a>
+            </li>
+            <li class="nav-items">
+              <a href="" class="nav-link">Connect</a>
+            </li>
+          </ul>
         </div>
-        <!-- end of menu-bar div -->
+
+        <button class="hamburger">
+          <div class="bar"></div>
+        </button>
+        <!-- end of nav div -->
       </div>
       <!-- end of nav-container div -->
     </header>
     <!-- end of header element -->
+
+    <nav class="mobile-nav">
+      <a href="">Home</a>
+      <a href="">Catalogue</a>
+      <a href="">Connect</a>
+    </nav>
 
     <div class="landing-message-container">
       <div class="landing-image-wrap">
         <img src="../public/images/design.png" alt="" />
       </div>
       <div class="landing-message-wrap">
-        <h1>
-          Hello<span id="dot">.</span><br />
-          I am <br />
-          Derah
-        </h1>
+        <h1 id="hello">Hello<span id="dot">.</span></h1>
+        <h1 id="i-am">I am</h1>
+        <h1 id="derah">Derah</h1>
+
         <p>Welcome. Please feel free to look around</p>
       </div>
+    </div>
+
+    <div class="btn-container">
+      <button class="btn">
+        <i class="fa-solid fa-arrow-down"></i> Projects
+      </button>
     </div>
   </body>
 </html>

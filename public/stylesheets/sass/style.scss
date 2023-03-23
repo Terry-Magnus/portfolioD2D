@@ -2,8 +2,10 @@
 $blackBackground: #040404;
 $textBlack: #181818;
 $gold: #b9961b;
+$fadedGold: #b99b2e;
 $textWhite: #f5fdff;
 $gentleRed: #b91b67;
+$fadedBlack: #111111;
 
 ////////////////////////////fonts
 $font-poppins: "Poppins", sans-serif;
@@ -15,6 +17,29 @@ $font-poppins: "Poppins", sans-serif;
   font-weight: $font-weight;
   font-size: $font-size;
   line-height: $line-height;
+}
+
+////////////////////////////keyframes
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes textBlink {
+  from {
+    width: 0.15rem;
+  }
+  to {
+    background: transparent;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 0.47;
+    transform: translateY(0);
+  }
 }
 
 /************************************************* base styles ***************************************/
@@ -45,7 +70,7 @@ body {
   gap: 1em;
   justify-content: space-between;
 
-  .logo-image-wrap {
+  .nav-branding {
     width: max-content;
 
     > img {
@@ -53,28 +78,106 @@ body {
     }
   }
 
-  .menu-bar {
-    float: right;
-    padding-top: 1em;
-    // width: max-content;
+  .nav {
+    width: max-content;
 
-    .nav {
-      width: 100%;
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
 
-      #nav-items-wrap {
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        gap: 2rem;
-        // justify-content: center;
-        // align-items: center;
+    #nav-items-wrap {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
 
-        .nav-links {
-          color: $textWhite;
+      .nav-link {
+        color: $textWhite;
+
+        &:hover {
+          color: $gold;
         }
       }
     }
   }
+
+  .hamburger {
+    @media only screen and (min-width: 768px) {
+      display: none;
+    }
+
+    display: block;
+    width: 35px;
+    cursor: pointer;
+    background: none;
+    outline: none;
+    border: none;
+
+    .bar,
+    &::after,
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 5px;
+      background: $textWhite;
+      margin: 6px 0;
+      transition: all 0.3s ease;
+    }
+  }
+
+  .hamburger.active {
+    .bar {
+      opacity: 0;
+    }
+
+    &::before {
+      transform: rotate(45deg) translateY(15px);
+    }
+
+    &::after {
+      transform: rotate(-45deg) translateY(-15px);
+    }
+  }
+}
+
+.mobile-nav {
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 60%;
+  min-height: 100vh;
+  display: block;
+  z-index: 1;
+  background-color: $blackBackground;
+  padding-top: 120px;
+  transition: 0.4s;
+
+  a {
+    display: block;
+    text-align: center;
+    max-width: 50%;
+    margin: 0 auto 2rem;
+    padding: 1rem;
+    background-color: $fadedBlack;
+    color: $textWhite;
+    text-decoration: none;
+    border-radius: 5px;
+    @include font-block(1rem, 0.8rem, 300);
+
+    &:hover {
+      background-color: $gold;
+    }
+  }
+}
+
+.mobile-nav.active {
+  left: 0;
 }
 
 /***************************************** end of nav styles ******************************************/
@@ -89,30 +192,163 @@ body {
     margin: 2rem auto;
     width: 50%;
 
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+      max-height: 80vh;
+      overflow: hidden;
+    }
+
     > img {
       width: 100%;
+      height: max-content;
+
+      @media only screen and (max-width: 768px) {
+        width: 200%;
+      }
     }
   }
 
   .landing-message-wrap {
     position: absolute;
-    top: 15%;
+    top: 20%;
     left: 57%;
     width: max-content;
-    // border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (max-width: 768px) {
+      left: 50%;
+      top: 25%;
+      transform: translateX(-50%);
+    }
 
     > h1 {
-      @include font-block(6rem, 6rem, 600);
+      @include font-block(7rem, 7rem, 600);
       margin-bottom: 0;
+
+      @media only screen and (max-width: 768px) {
+        @include font-block(5rem, 5rem, 600);
+      }
+    }
+
+    #hello {
+      position: relative;
+      max-width: max-content;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+
+      &::before {
+        background: $blackBackground;
+        animation: typewriter 1s steps(6) 2s forwards;
+      }
+
+      &::after {
+        animation: typewriter 1s steps(6) 2s forwards;
+      }
 
       #dot {
         color: $gentleRed;
       }
     }
 
+    #i-am {
+      position: relative;
+      max-width: max-content;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+
+      &::before {
+        background: $blackBackground;
+        animation: typewriter 1s steps(3) 3s forwards;
+      }
+
+      &::after {
+        animation: typewriter 1s steps(3) 3s forwards;
+      }
+    }
+
+    #derah {
+      position: relative;
+      max-width: max-content;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+
+      &::before {
+        background: $blackBackground;
+        animation: typewriter 1s steps(5) 4s forwards;
+      }
+
+      &::after {
+        animation: typewriter 1s steps(5) 4s forwards;
+      }
+    }
+
     > p {
       @include font-block(1rem, 1rem, 300);
-      opacity: 0.47;
+      opacity: 0;
+      transform: translateY(3rem);
+      animation: fadeInUp 2s ease 5s forwards;
+
+      @media only screen and (max-width: 768px) {
+        @include font-block(1rem, 1rem, 300);
+        margin-top: 0.8rem;
+      }
+    }
+  }
+}
+
+.btn-container {
+  display: none;
+
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0 5rem;
+    width: 100%;
+
+    .btn {
+      @include font-block(1rem, 1rem, 300);
+      padding: 1rem 2rem;
+      border: 1px solid $gold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background-color: $fadedGold;
+      color: $textWhite;
+      width: 80%;
+      transition: margin-top 1s, width 1s, background-color 1s;
+
+      &:hover {
+        background-color: $gold;
+        color: $textWhite;
+        border: 1px solid $gold;
+        margin-top: 0.5rem;
+        width: 85%;
+      }
     }
   }
 }
