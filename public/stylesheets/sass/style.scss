@@ -1,11 +1,16 @@
 ////////////colors
-$blackBackground: #040404;
+$blackBackground: linear-gradient(33.69deg, #000000 20%, #131517 81.92%);
 $textBlack: #181818;
 $gold: #b9961b;
-$fadedGold: #b99b2e;
 $textWhite: #f5fdff;
+$blackBackground: #040404;
+$textBlack: #181818;
+$fadedGold: #b99b2e;
 $gentleRed: #b91b67;
 $fadedBlack: #111111;
+
+///////////////variables
+$bp-small: 600px;
 
 ////////////////////////////fonts
 $font-poppins: "Poppins", sans-serif;
@@ -18,6 +23,106 @@ $font-poppins: "Poppins", sans-serif;
   font-size: $font-size;
   line-height: $line-height;
 }
+
+@mixin blackBGPosition {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+$bp-small: 600px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  overflow-x: hidden;
+  background: $blackBackground;
+}
+
+/************************************************* base styles ***************************************/
+
+/***************Reusable styles **********************/
+
+// Navbar styles//
+// .navbar {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   background: none;
+//   padding: 10px;
+//   width: 100%;
+
+//   .nav-links {
+//     display: flex;
+//     justify-content: space-between;
+//     padding: 0;
+//     width: 20em;
+//     height: 100%;
+
+//     @media (max-width: $bp-small) {
+//       flex-direction: column;
+//       position: absolute;
+//       top: 70px;
+//       right: 0;
+//       width: 100%;
+//       background-color: #333;
+//       transition: all 1.5s ease;
+//       display: none;
+//       text-align: center;
+//       z-index: 3;
+//     }
+
+//     li {
+//       list-style: none;
+//       cursor: pointer;
+
+//       a {
+//         text-decoration: none;
+//         color: $textWhite;
+//         text-transform: uppercase;
+//       }
+
+//       @media (max-width: $bp-small) {
+//         padding: 1.5em 0;
+//       }
+//     }
+//   }
+
+//   .menu-toggle {
+//     display: none;
+//     color: $textWhite;
+//     font-size: 1.2em;
+//     margin-right: 10px;
+
+//     cursor: pointer;
+
+//     @media (max-width: $bp-small) {
+//       display: block;
+//     }
+//   }
+
+//   .close-toggle {
+//     display: none;
+//     color: $textWhite;
+//     font-size: 2em;
+//     cursor: pointer;
+
+//     @media (max-width: $bp-small) {
+//       display: none;
+//     }
+//   }
+// }
+
+// End of Navbar styles//
 
 ////////////////////////////keyframes
 @keyframes typewriter {
@@ -95,6 +200,8 @@ body {
 
       .nav-link {
         color: $textWhite;
+        font-family: $font-poppins;
+        text-decoration: none;
 
         &:hover {
           color: $gold;
@@ -182,7 +289,7 @@ body {
 
 /***************************************** end of nav styles ******************************************/
 
-/***************************************** landing-message styles ******************************************/
+/***************************************** landing page styling ******************************************/
 
 .landing-message-container {
   width: 100%;
@@ -237,12 +344,7 @@ body {
 
       &::before,
       &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        @include blackBGPosition();
       }
 
       &::before {
@@ -265,12 +367,7 @@ body {
 
       &::before,
       &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        @include blackBGPosition();
       }
 
       &::before {
@@ -289,12 +386,7 @@ body {
 
       &::before,
       &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        @include blackBGPosition();
       }
 
       &::before {
@@ -351,4 +443,578 @@ body {
       }
     }
   }
+}
+/***************************************** end of landing page styling ******************************************/
+
+.pexel {
+  position: absolute;
+  z-index: 3;
+  display: none;
+
+  @media (min-width: $bp-small) {
+    display: block;
+  }
+}
+
+#pexel-1 {
+  width: 20px;
+  top: 20%;
+  left: 75%;
+}
+
+#pexel-2 {
+  width: 20px;
+  top: 25%;
+  left: 30%;
+}
+
+#pexel-3 {
+  width: 25px;
+  top: 40%;
+  left: 10%;
+}
+
+#pexel-4 {
+  width: 35px;
+  top: 75%;
+  left: 45%;
+}
+
+.on_desktop {
+  display: none;
+
+  @media (min-width: $bp-small) {
+    display: block;
+  }
+}
+
+.on_mobile {
+  display: block;
+
+  @media (min-width: $bp-small) {
+    display: none;
+  }
+}
+
+/***************************************** end of Reusable styles ******************************************/
+
+/************************* Main catalogue page styles ***************************************/
+@mixin textbackgroundStyles {
+  position: fixed;
+  font-family: "Ubuntu";
+  font-size: 15em;
+  font-weight: 700;
+  color: $textBlack;
+  opacity: 0.34;
+  text-shadow: -31px 4px 37px rgba(0, 0, 0, 0.25);
+  text-align: center;
+
+  @media (min-width: $bp-small) {
+    font-size: 18em;
+  }
+}
+
+.des-wrap {
+  top: 20%;
+  left: 25%;
+  @include textbackgroundStyles();
+
+  @media (min-width: $bp-small) {
+    top: 10%;
+    left: 25%;
+  }
+}
+
+.ign-wrap {
+  top: 60%;
+  left: 25%;
+  @include textbackgroundStyles();
+
+  @media (min-width: $bp-small) {
+    top: 50%;
+    left: 25%;
+  }
+}
+
+.catalogue {
+  /* Container for the links to each category*/
+  position: relative;
+  padding: 50px 10px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 100px;
+  width: 100%;
+  height: 90vh;
+  background: rgba(0, 0, 0, 0.25);
+
+  .ui-design,
+  .three-d-design {
+    z-index: 1;
+    text-align: center;
+
+    .ui-image,
+    .three-d-image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 50%;
+        height: auto;
+
+        // &:nth-child(1) {
+        //     @media (max-width: $bp-small) {
+        //         &:focus {
+        //             transform: translate(100vw);
+        //             opacity: 0;
+        //             transition: all 1s ease;
+        //         }
+        //     }
+        // }
+
+        @media (min-width: $bp-small) {
+          width: 100%;
+
+          &:hover {
+            /* increase image size on hover*/
+            transform: scale(1.2);
+            transition: transform 1s ease;
+          }
+        }
+      }
+    }
+
+    p {
+      text-align: center;
+      color: $textWhite;
+    }
+
+    @media (min-width: $bp-small) {
+      width: 35%;
+    }
+  }
+
+  @media (min-width: $bp-small) {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 30px;
+  }
+}
+
+/********************* end of main catalogue page styles ***************/
+
+/******* 3d Catalogue Page Styles *******/
+@mixin cardTextStyles {
+  font-family: "Poppins";
+  position: absolute;
+  color: $textWhite;
+
+  h1 {
+    font-size: 1.5em;
+    font-weight: 400;
+
+    @media (min-width: $bp-small) {
+      font-size: 2em;
+    }
+  }
+
+  span {
+    font-size: 12px;
+    opacity: 0.72;
+  }
+}
+
+.slide-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  #slide-up {
+    display: none;
+    border: 0;
+    background: none;
+    width: 3em;
+    height: 50px;
+    position: absolute;
+    top: 25px;
+    left: 50vw;
+    z-index: 2;
+
+    img {
+      width: 100%;
+      transform: rotate(180deg);
+    }
+  }
+
+  #slide-down {
+    display: none;
+    border: 0;
+    background: none;
+    width: 3em;
+    height: 50px;
+    position: absolute;
+    bottom: 10px;
+    left: 50vw;
+    z-index: 2;
+
+    img {
+      width: 100%;
+    }
+
+    @media (min-width: $bp-small) {
+      display: block;
+    }
+  }
+
+  .slider {
+    .slide-group {
+      width: 100%;
+      height: 100%;
+
+      .slide-card {
+        height: 500px;
+        width: 100%;
+        padding: 100px 50px;
+
+        @media (min-width: $bp-small) {
+          width: 50%;
+          padding: 200px 25px;
+        }
+      }
+
+      @media (min-width: $bp-small) {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+    }
+
+    #jankins {
+      background: url("../images/jankins-alt.png") no-repeat;
+      background-size: 25em;
+      background-position: 60% center;
+      box-shadow: -36px 54px 83px rgba(0, 0, 0, 0.65);
+      border-radius: 20px;
+      position: relative;
+
+      .description {
+        @include cardTextStyles();
+        top: 45%;
+        left: 25%;
+      }
+
+      @media (min-width: $bp-small) {
+        background-size: 80%;
+      }
+    }
+
+    #ralph {
+      background: url("../images/ralph-alt.png") no-repeat;
+      background-size: 15em;
+      background-position: 80% center;
+      box-shadow: -36px 54px 83px rgba(0, 0, 0, 0.65);
+      border-radius: 20px;
+      position: relative;
+
+      .description {
+        @include cardTextStyles();
+        top: 50%;
+        left: 15%;
+
+        @media (min-width: $bp-small) {
+          left: 10%;
+        }
+      }
+
+      @media (min-width: $bp-small) {
+        background-image: url("../images/ralph.png");
+        background-size: 80%;
+      }
+    }
+
+    #africana {
+      background: url("../images/africana.png") no-repeat;
+      background-size: 100%;
+      background-position: center center;
+      box-shadow: -36px 54px 83px rgba(0, 0, 0, 0.65);
+      border-radius: 20px;
+      position: relative;
+
+      .description {
+        @include cardTextStyles();
+        top: 60%;
+        left: 10%;
+      }
+
+      @media (min-width: $bp-small) {
+        background-size: 80%;
+      }
+    }
+
+    #nok {
+      background: url("../images/nok.png") no-repeat;
+      background-size: 100%;
+      background-position: 70% center;
+      box-shadow: -36px 54px 83px rgba(0, 0, 0, 0.65);
+      border-radius: 20px;
+      position: relative;
+
+      .description {
+        @include cardTextStyles();
+        top: 60%;
+        left: 10%;
+      }
+
+      @media (min-width: $bp-small) {
+        background-size: 80%;
+      }
+    }
+
+    @media (min-width: $bp-small) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      height: 100%;
+    }
+  }
+
+  @media (min-width: $bp-small) {
+    overflow-y: hidden;
+  }
+}
+
+/***** Connect page styles *****/
+.hero {
+  font-family: "Poppins";
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: sticky;
+
+  img:nth-child(1) {
+    width: 20%;
+    margin-left: 5%;
+  }
+
+  img:nth-child(2) {
+    width: 70%;
+  }
+
+  h1 {
+    color: $textWhite;
+    text-transform: uppercase;
+    font-size: 5vw;
+
+    .bold {
+      @media (min-width: $bp-small) {
+        font-size: 3.5vw;
+      }
+    }
+
+    @media (min-width: $bp-small) {
+      font-size: 2.5vw;
+      margin: 20vh 25vw 0 0;
+    }
+  }
+
+  @media (min-width: $bp-small) {
+    transform: translateY(-15vh);
+  }
+}
+
+.connect {
+  color: $textWhite;
+}
+
+.skills {
+  color: $textWhite;
+}
+
+/////////////////////////////////////////////////////connect page styles
+.nav-container {
+  padding-top: 50px;
+  // outline: 2px solid white;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .image-wrap {
+    width: max-content;
+    margin-left: 50px;
+    // outline: 2px solid white;
+
+    > img {
+      width: 100%;
+    }
+  }
+
+  .menu-bar {
+    margin-right: 100px;
+    //   transform: rotate(-90deg);
+    width: max-content;
+    //   margin-top: -50px;
+    // outline: 2px solid white;
+    padding: -1rem 1rem;
+
+    .nav {
+      // outline: 2px solid white;
+      padding: 15px;
+
+      #nav-items-wrap {
+        list-style: none;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+
+        .nav-links {
+          color: $textWhite;
+          font-size: 20px;
+          text-decoration: none;
+          font-family: $font_poppins;
+        }
+
+        .nav-links:hover {
+          color: $gold;
+        }
+      }
+    }
+  }
+}
+
+// main container styling
+
+.main-intro {
+  margin: 0 auto;
+  width: 55em;
+
+  .first-layer {
+    display: flex;
+    justify-content: space-between;
+    // outline: 2px solid white;
+    height: 500px;
+
+    #robo-img {
+      z-index: 1;
+      margin-top: -100px;
+      width: 300px;
+    }
+
+    #title-text {
+      width: 300px;
+      height: 80px;
+      margin-top: 300px;
+      margin-right: 20px;
+      // outline: 2px solid white;
+      font-size: 30px;
+      font-family: $font_poppins;
+      font-weight: 200;
+      letter-spacing: -1px;
+
+      span {
+        font-size: 50px;
+        font-weight: bolder;
+      }
+    }
+  }
+
+  .second-layer {
+    height: 350px;
+    // outline: 2px solid white;
+    .search-area {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 30px;
+      position: relative;
+
+      input {
+        width: 350px;
+        height: 40px;
+        border-color: $gold;
+        background-color: transparent;
+      }
+      input:focus {
+        outline: 1px solid $gold;
+      }
+      img {
+        background-color: #b9961b;
+        position: absolute;
+        height: 40px;
+      }
+
+      #tel-id {
+        left: -1px;
+      }
+
+      #eml-id {
+        left: 840px;
+      }
+    }
+
+    .bio-text {
+      width: 800px;
+      margin: 2.5rem auto;
+      padding: 1rem;
+
+      .bio {
+        font-size: 20px;
+        font-family: $font_poppins;
+      }
+    }
+  }
+
+  .third-layer {
+    height: 400px;
+    // outline: 2px solid white;
+    #skl-til {
+      font-family: $font_poppins;
+      font-size: 35px;
+      padding-top: 20px;
+    }
+
+    .skill-gallery {
+      margin-top: 100px;
+      display: flex;
+      flex-direction: row;
+      gap: 100px;
+
+      .ski-card {
+        width: 150px;
+        height: auto;
+        // outline: 2px solid white;
+        text-align: center;
+
+        #bl {
+          width: 130px;
+        }
+
+        #ph {
+          width: 200px;
+          // padding-right: 20px;
+          margin-left: -22.5px;
+        }
+
+        #fi {
+          width: 90px;
+        }
+        #ad {
+          width: 130px;
+        }
+
+        #til-he {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  // border-top: 1px solid whitesmoke;
+  width: 100%;
+  padding: 3rem;
+  text-align: center;
 }
