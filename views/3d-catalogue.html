@@ -27,6 +27,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="../public/js/nav.js" defer></script>
+    ]
+    <!-- <script src="../public/js/scroll.js" defer></script>] -->
   </head>
   <body>
     <div class="nav-container">
@@ -54,15 +56,13 @@
       <!-- end of nav div -->
     </div>
     <!-- end of nav-container div -->
-  </header>
-  <!-- end of header element -->
 
-  <nav class="mobile-nav">
-    <a href="index.html">Home</a>
-    <a href="catalogue.html">Catalogue</a>
-    <a href="connect.html">Connect</a>
-  </nav>
-  <!-- end of mobile-nav -->
+    <nav class="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="catalogue.html">Catalogue</a>
+      <a href="connect.html">Connect</a>
+    </nav>
+    <!-- end of mobile-nav -->
 
     <div class="slide-container">
       <button id="slide-up">
@@ -118,6 +118,10 @@
       </div>
       <!--End of slide container-->
     </div>
+    <!-- 
+    <button id="scroll-up">
+      <img src="../public/images/arrow-up.png" alt="scroll-up" />
+    </button> -->
 
     <script>
       const controlPrev = document.querySelector("#slide-up");
@@ -157,23 +161,6 @@
 
       controlPrev.addEventListener("click", showPrevGroup);
       controlNext.addEventListener("click", showNextGroup);
-
-      //Navbar mobile menu controls
-      const menuToggle = document.querySelector(".menu-toggle");
-      const closeToggle = document.querySelector(".close-toggle");
-      const navLinks = document.querySelector(".nav-links");
-
-      menuToggle.addEventListener("click", function () {
-        navLinks.style.display = "flex";
-        closeToggle.style.display = "block";
-        menuToggle.style.display = "none";
-      });
-
-      closeToggle.addEventListener("click", function () {
-        navLinks.style.display = "none";
-        closeToggle.style.display = "none";
-        menuToggle.style.display = "block";
-      });
     </script>
   </body>
 </html>

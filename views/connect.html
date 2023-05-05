@@ -6,60 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Connect</title>
     <link rel="stylesheet" type="" href="../public/stylesheets/style.css" />
+    <script src="../public/js/nav.js" defer></script>
   </head>
   <body>
     <div class="nav-container">
-      <div class="image-wrap">
+      <div class="nav-branding">
         <img src="../public/images/logo.png" alt="" />
       </div>
-      <header>
-        <div class="menu-bar">
-          <div class="nav">
-            <ul id="nav-items-wrap">
-              <li class="nav-items">
-                <a href="index.html" class="nav-links">HOME</a>
-              </li>
-              <li class="nav-items">
-                <a href="catalogue.html" class="nav-links">CATALOGUE</a>
-              </li>
-              <li class="nav-items">
-                <a href="connect.html" class="nav-links">CONNECT</a>
-              </li>
-            </ul>
-          </div>
-          <!-- end of nav div -->
-        </div>
-        <!-- end of menu-bar div -->
-      </header>
-      <!-- end of header element -->
+
+      <div class="nav">
+        <ul id="nav-items-wrap">
+          <li class="nav-items">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-items">
+            <a href="catalogue.html" class="nav-link">Catalogue</a>
+          </li>
+          <li class="nav-items">
+            <a href="connect.html" class="nav-link">Connect</a>
+          </li>
+        </ul>
+      </div>
+
+      <button class="hamburger">
+        <div class="bar"></div>
+      </button>
+      <!-- end of nav div -->
     </div>
     <!-- end of nav-container div -->
 
+    <nav class="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="catalogue.html">Catalogue</a>
+      <a href="connect.html">Connect</a>
+    </nav>
+    <!-- end of mobile-nav -->
+
     <section class="main-intro">
       <div class="first-layer">
-        <img id="robo-img" src="../public/images/Group 14.png" alt="" />
+        <img id="robo-img" src="../public/images/Group 14.png" alt="robot" />
+
         <h1 id="title-text">CHIDERA FRANCIS<br /><span>UKEWUIHE</span></h1>
       </div>
 
       <div class="second-layer">
         <div class="search-area">
-          <label for="">
-            <input type="search" name="search-tel" />
+          <div class="input-container">
             <img
               id="tel-id"
               src="../public/images/bx_phone-call.svg"
               alt="tel-svg"
             />
-          </label>
+            <input type="search" name="search-tel" />
+          </div>
 
-          <label for="">
-            <input type="search" name="search-eml" />
+          <div class="input-container">
             <img
               id="eml-id"
               src="../public/images/carbon_email-new.svg"
               alt="email-svg"
             />
-          </label>
+            <input type="search" name="search-eml" />
+          </div>
         </div>
         <div class="bio-text">
           <p id="bio">
@@ -98,8 +106,6 @@
       </div>
     </section>
 
-    <br /><br /><br />
-    <br /><br /><br />
     <div class="footer">
       <footer>
         <p>DeraDesigns &copy;Copyright 2022</p>
